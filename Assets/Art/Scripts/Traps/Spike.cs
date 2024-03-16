@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class DeathZone : MonoBehaviour
+public class Spike : MonoBehaviour
 {
     private Variable player;
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter(Collider col)
     {
         player = col.GetComponent<Variable>();
-        player.pv = 0;
+        player.pv = -3;
     }
 }

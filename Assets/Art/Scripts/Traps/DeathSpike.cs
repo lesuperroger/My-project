@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class DeathZone : MonoBehaviour
+public class DeathSpike : MonoBehaviour
 {
     private Variable player;
     private void OnTriggerEnter2D(Collider2D col)
