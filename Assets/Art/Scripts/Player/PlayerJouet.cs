@@ -26,7 +26,10 @@ public class PlayerJouet : MonoBehaviour
         float dirRotation = Convert.ToInt32(Input.GetKey(KeyCode.LeftArrow)) - Convert.ToInt32(Input.GetKey(KeyCode.RightArrow));
 
         rb.velocity = new Vector2(move * speed, rb.velocity.y);
-        if(Input.GetButtonDown("Jump"))
-            rb.AddForce(jumpForce * transform.up);
+        if (isOnGround == true) 
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                rb.velocity = (jumpForce * transform.up);
+        }
     }
 }
