@@ -47,7 +47,6 @@ public class PlayerJouet : MonoBehaviour
             {
                 ChangeColorNormal();
                 kbNeedReset = false;
-                Debug.Log("Knock back reset");
             }
             //movement gauche/droite
             move = Input.GetAxis("Horizontal");
@@ -82,7 +81,6 @@ public class PlayerJouet : MonoBehaviour
 
     public void TakeDamage(bool isFromRight, int dam)
     {
-        Debug.Log("le foutu crane");
         KnockFromRight = isFromRight;
         kbCounter = kbTotalTime;
         pv -= dam;
@@ -97,7 +95,8 @@ public class PlayerJouet : MonoBehaviour
         kbNeedReset = true;
         ChangeColorToRed();
     }
-    public void Death() {
+    public void Death() 
+    {
         //ajout du son de mort
         if (mort != null)
         {
@@ -135,7 +134,6 @@ public class PlayerJouet : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 1.1f);
-            Debug.Log("continu saut");
         }
     }
 
