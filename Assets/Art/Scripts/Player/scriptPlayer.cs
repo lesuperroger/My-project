@@ -36,7 +36,6 @@ public class scriptPlayer : MonoBehaviour
         }
 
     }
-
     private void AddSpeed(float accelerationSpeed)
     {
         rb.AddForce(accelerationSpeed * transform.up);
