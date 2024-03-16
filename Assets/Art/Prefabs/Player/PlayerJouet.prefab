@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d1f776c73630842b7b85c36b2439a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pv: 3
+  pv: 0
   jumpForce: 20
   speed: 10
   isOnGround: 1
@@ -228,10 +228,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  hitPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  invincibilityTime: 0
 --- !u!50 &3639911070656089765
 Rigidbody2D:
   serializedVersion: 4

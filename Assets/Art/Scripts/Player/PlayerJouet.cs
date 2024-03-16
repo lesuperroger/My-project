@@ -11,12 +11,9 @@ public class PlayerJouet : MonoBehaviour
     public bool isOnGround = true;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private LayerMask hitPlayer;
     private Rigidbody2D rb;
     private float move;
     private bool isFacingRight;
-    private bool isInvincible;
-    [SerializeField] private float invincibility;
 
     // Start is called before the first frame update
     void Start()
@@ -28,24 +25,13 @@ public class PlayerJouet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pv > 0)
-        {
+        //movement gauche/droite
+        move = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(move * speed, rb.velocity.y);
+        //flip sprite
+        Flip();
 
-            //movement gauche/droite
-            move = Input.GetAxis("Horizontal");
-            rb.velocity = new Vector2(move * speed, rb.velocity.y);
-            // Flip sprite
-            Flip();
-            // Player jump Jump
-            Jump();
-            //
-            DamageCheck();
-        }
-        else
-        {
-            //Game over
-        }
-
+        Jump();
         
     }
     private void Jump()
@@ -55,18 +41,7 @@ public class PlayerJouet : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y > 0f)
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
     }
-    private void DamageCheck()
-    {
-        if(IsDamaged())
-        {
-            pv -= 1;
 
-        }
-    }
-    private bool IsDamaged()
-    {
-        return false;
-    }
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
@@ -81,5 +56,4 @@ public class PlayerJouet : MonoBehaviour
             transform.localScale = localScale;
         }
     }
-
 }
