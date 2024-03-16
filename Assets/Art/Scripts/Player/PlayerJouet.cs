@@ -5,27 +5,35 @@ using UnityEngine;
 
 public class PlayerJouet : MonoBehaviour
 {
+    // Variable movement
     public int pv = 3;
     public int jumpForce = 10; 
     public int speed = 10;
     public bool isOnGround = true;
+    private float move;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D rb;
-    private float move;
     private bool isFacingRight;
-
-    public float kbForce;
-    public float kbCounter;
-    public float kbTotalTime;
-    private bool KnockFromRight;
-    private bool kbNeedReset = false;
+    //Variable Knock back
+    public float kbForce; // la force du knockback
+    public float kbCounter; // le temps le temps qu'il te reste avant de pouvoir bouger
+    public float kbTotalTime; // le temps que tu passe sans pouvoir bouger
+    private bool KnockFromRight; // de quel coté viens le coup
+    private bool kbNeedReset = false; // si le kb a besoin de se reinitialiser
+    //Variable couleur
     public SpriteRenderer spriteRenderer;
+    public float tempsPas;
+    public float tempsPasMax;
+    // manager du sond
+    private PlayerSoundManager playerSoundManager;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerSoundManager = GetComponent<PlayerSoundManager>();
         isFacingRight = true;
+       
     }
 
     // Update is called once per frame
@@ -41,10 +49,20 @@ public class PlayerJouet : MonoBehaviour
             //movement gauche/droite
             move = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(move * speed, rb.velocity.y);
-            //flip sprite
+            // Flip sprite
             Flip();
-
-            Jump();
+            // Saute
+            
+            if(IsGrounded())
+            {
+                Jump();
+                if (tempsPas <= 0)
+                {
+                    playerSoundManager.playMarche();
+                    tempsPas = tempsPasMax;
+                }
+            }
+            tempsPas -= Time.deltaTime;
         }
         else
         {
@@ -52,7 +70,7 @@ public class PlayerJouet : MonoBehaviour
             {
                 rb.velocity = new Vector2(-kbForce, kbForce);
             }
-            else if (KnockFromRight == false)
+            else
             {
                 rb.velocity = new Vector2(kbForce, kbForce);
             }
@@ -62,6 +80,7 @@ public class PlayerJouet : MonoBehaviour
 
     public void TakeDamage(bool isFromRight)
     {
+        
         KnockFromRight = isFromRight;
         kbCounter = kbTotalTime;
         pv -= 1;
