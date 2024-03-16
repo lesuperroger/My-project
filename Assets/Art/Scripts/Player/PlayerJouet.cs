@@ -34,6 +34,16 @@ public class PlayerJouet : MonoBehaviour
         Jump();
         
     }
+
+    public void TakeDamage()
+    {
+        pv -= 1;
+        if (pv <= 0)
+        {
+            //Destroy(gameObject);
+        }
+
+    }
     private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
