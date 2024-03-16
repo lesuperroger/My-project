@@ -45,23 +45,23 @@ public class PlayerJouet : MonoBehaviour
             {
                 ChangeColorNormal();
                 kbNeedReset = false;
+                Debug.Log("Knock back reset");
             }
             //movement gauche/droite
             move = Input.GetAxis("Horizontal");
+
+            
             rb.velocity = new Vector2(move * speed, rb.velocity.y);
             // Flip sprite
             Flip();
-            // Saute
-            
-            if(IsGrounded())
+            if ((move > 0 || move < 0) && tempsPas <= 0 && IsGrounded())
             {
-                Jump();
-                if (tempsPas <= 0)
-                {
-                    playerSoundManager.playMarche();
-                    tempsPas = tempsPasMax;
-                }
+                playerSoundManager.PlayMarche();
+                tempsPas = tempsPasMax;
             }
+            // Saute
+
+            Jump();
             tempsPas -= Time.deltaTime;
         }
         else
@@ -80,13 +80,16 @@ public class PlayerJouet : MonoBehaviour
 
     public void TakeDamage(bool isFromRight)
     {
-        
         KnockFromRight = isFromRight;
         kbCounter = kbTotalTime;
         pv -= 1;
         if (pv <= 0)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
+        }
+        else
+        {
+            playerSoundManager.PlayHit();
         }
         kbNeedReset = true;
         ChangeColorToRed();
@@ -113,9 +116,15 @@ public class PlayerJouet : MonoBehaviour
     private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
             rb.velocity = (jumpForce * transform.up);
+            playerSoundManager.PlayJump();
+        }
         if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y > 0f)
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 1.1f);
+            Debug.Log("continu saut");
+        }
     }
 
     private bool IsGrounded()
@@ -130,6 +139,8 @@ public class PlayerJouet : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+            // Reset les pas
+            tempsPas = 0;
         }
     }
 }

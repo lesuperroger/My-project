@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 0
-  jumpForce: 20
+  jumpForce: 5
   speed: 10
   isOnGround: 1
   groundCheck: {fileID: 8409462952569691930}
@@ -380,12 +380,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8c04b89c3135047688f4aa815277efc8, type: 3}
   - {fileID: 8300000, guid: 2df17363b07924740a194b39b7418e94, type: 3}
   - {fileID: 8300000, guid: f033b37c6babb40eca2a58c8539075af, type: 3}
-  soudJump:
+  soundFlip: []
+  soundJump:
   - {fileID: 8300000, guid: f1391cf991c7e45edbcb47882629a49a, type: 3}
   - {fileID: 8300000, guid: 8493ee6c230db4955bb52762b671ee48, type: 3}
   - {fileID: 8300000, guid: 66b754f26739d4342aa36be369d542da, type: 3}
   - {fileID: 8300000, guid: fb89d860f611c43b588dc13f209322b0, type: 3}
-  soudHit: []
+  soundHit: []
+  soundDeath:
+  - {fileID: 0}
 --- !u!1 &3256240381031503559
 GameObject:
   m_ObjectHideFlags: 0
