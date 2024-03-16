@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class Bumper : MonoBehaviour
 {
+    private string layerNameP = "player";// layer mask qui detecte si c'est un player
+    private LayerMask layerMaskP;// layer mask qui detecte si c'est un player
     public float bumpingJump = 70000f;
     private Rigidbody2D rb;
+    private void Start()
+    {    
+        layerMaskP = (LayerMask)LayerMask.GetMask(layerNameP);// layer mask qui detecte si c'est un player
+    }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        rb = col.GetComponent<Rigidbody2D>();
-        Vector2 direction = Vector2.up * bumpingJump;
-        rb.velocity = direction * Time.deltaTime;
+        if ((((int)1 << col.gameObject.layer) & layerMaskP) != 1) // layer mask qui detecte si c'est un player
+        {
+            rb = col.GetComponent<Rigidbody2D>();
+            if(rb != null)
+            {
+                Vector2 direction = Vector2.up * bumpingJump;
+                rb.velocity = direction * Time.deltaTime;
+            }
+        }
     }
 }

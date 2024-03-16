@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7101601767512401255}
   - component: {fileID: 2528035567921045591}
   - component: {fileID: 8403014778854978630}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DeathSpike
   m_TagString: Untagged
   m_Icon: {fileID: 0}

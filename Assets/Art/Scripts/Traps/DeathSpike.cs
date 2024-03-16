@@ -8,6 +8,9 @@ public class DeathSpike : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         player = col.GetComponent<PlayerJouet>();
-        player.pv = 0;
+        if (player != null) 
+        { 
+            player.pv = 0; 
+        }
     }
 }

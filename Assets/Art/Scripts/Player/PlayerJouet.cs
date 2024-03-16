@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerJouet : MonoBehaviour
 {
     public int pv = 3;
-    public int jumpForce = 10; 
+    public int jumpForce = 10;
     public int speed = 10;
     public bool isOnGround = true;
     [SerializeField] private Transform groundCheck;
@@ -21,9 +21,11 @@ public class PlayerJouet : MonoBehaviour
     private bool KnockFromRight;
     private bool kbNeedReset = false;
     public SpriteRenderer spriteRenderer;
+    public Mort mort;
     // Start is called before the first frame update
     void Start()
     {
+        mort = gameObject.GetComponent<Mort>();
         rb = GetComponent<Rigidbody2D>();
         isFacingRight = true;
     }
@@ -33,7 +35,7 @@ public class PlayerJouet : MonoBehaviour
     {
         if (kbCounter <= 0)
         {
-            if(kbNeedReset)
+            if (kbNeedReset)
             {
                 ChangeColorNormal();
                 kbNeedReset = false;
@@ -60,18 +62,28 @@ public class PlayerJouet : MonoBehaviour
         }
     }
 
-    public void TakeDamage(bool isFromRight)
+    public void TakeDamage(bool isFromRight, int dam)
     {
+        Debug.Log("le foutu crane");
         KnockFromRight = isFromRight;
         kbCounter = kbTotalTime;
-        pv -= 1;
+        pv -= dam;
         if (pv <= 0)
         {
-            //Destroy(gameObject);
+            Death();
         }
         kbNeedReset = true;
         ChangeColorToRed();
     }
+    public void Death() {
+        //ajout du son de mort
+        if (mort != null)
+        {
+            mort.DeathMecha();
+        }
+        Destroy(gameObject);
+    }
+
     private void ChangeColorToRed()
     {
         if (spriteRenderer != null)
