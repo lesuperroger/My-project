@@ -15,12 +15,12 @@ public class DmDealer : MonoBehaviour
     void Update()
     {
         
-    }/*
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-           //playerPv.TakeDamage(1);
+           playerPv.TakeDamage(1);
         }
-    }*/
+    }
 }
