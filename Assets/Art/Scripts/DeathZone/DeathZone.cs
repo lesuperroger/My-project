@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class DeathZone : MonoBehaviour
 {
-    private Variable player;
+    private PlayerJouet player;
     private void OnTriggerEnter2D(Collider2D col)
     {
-        player = col.GetComponent<Variable>();
+        Debug.Log("trigger");
+        player = col.GetComponent<PlayerJouet>();
         player.pv = 0;
     }
 }

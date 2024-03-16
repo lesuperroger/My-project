@@ -8,7 +8,7 @@ public class PlayerJouet : MonoBehaviour
     public int pv = 3;
     public int jumpForce = 10;
     public int speed = 10;
-    private bool isOnGround = true;
+    public bool isOnGround = true;
     private Rigidbody2D rb;
 
     private float move;

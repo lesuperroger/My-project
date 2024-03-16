@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    private Variable player;
-    private void OnTriggerEnter(Collider col)
+    private PlayerJouet player;
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        player = col.GetComponent<Variable>();
-        player.pv = -3;
+        Debug.Log("TRIGGER");
+        player = col.GetComponent<PlayerJouet>();
+        player.pv = 0;
     }
 }

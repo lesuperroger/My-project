@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DeathSpike : MonoBehaviour
 {
-    private Variable player;
+    private PlayerJouet player;
     private void OnTriggerEnter2D(Collider2D col)
     {
-        player = col.GetComponent<Variable>();
+        player = col.GetComponent<PlayerJouet>();
         player.pv = 0;
     }
 }
