@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 524796464470027047}
   - component: {fileID: 3727165023727158733}
   - component: {fileID: 4473479211996376466}
+  - component: {fileID: 6805099758759014061}
   - component: {fileID: 3639911070656089765}
   m_Layer: 0
   m_Name: PlayerJouet
@@ -231,7 +232,21 @@ MonoBehaviour:
   hitPlayer:
     serializedVersion: 2
     m_Bits: 0
-  invincibilityTime: 0
+  invincibility: 0
+--- !u!114 &6805099758759014061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2334291396891919874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4b12f2ae9b97d479b1f3ba107ec44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pv: 3
+  maxPv: 3
 --- !u!50 &3639911070656089765
 Rigidbody2D:
   serializedVersion: 4
