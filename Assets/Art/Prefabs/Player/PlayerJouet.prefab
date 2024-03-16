@@ -228,27 +228,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-<<<<<<< HEAD
---- !u!114 &6805099758759014061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2334291396891919874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4b12f2ae9b97d479b1f3ba107ec44c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pv: 3
-  maxPv: 3
-=======
-  hitPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  invincibility: 0
->>>>>>> 62f8e901d0ddf297407ebdeec5ef014c9647118a
+  kbForce: 0
+  kbCounter: 0
+  kbTotalTime: 0
+  spriteRenderer: {fileID: 1543082315673617073}
 --- !u!50 &3639911070656089765
 Rigidbody2D:
   serializedVersion: 4
