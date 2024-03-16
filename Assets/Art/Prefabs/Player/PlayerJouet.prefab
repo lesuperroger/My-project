@@ -229,10 +229,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  hitPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  invincibility: 0
 --- !u!114 &6805099758759014061
 MonoBehaviour:
   m_ObjectHideFlags: 0
