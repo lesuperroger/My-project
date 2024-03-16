@@ -12,12 +12,14 @@ public class RhinoScript : MonoBehaviour
         [SerializeField] private Transform wallCheck;
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private LayerMask wallLayer;
+        private PlayerSoundManager playerSoundManager;
 
 
-        // Start is called before the first frame update
-        void Start()
+    // Start is called before the first frame update
+    void Start()
         {
 
+            playerSoundManager = GetComponent<PlayerSoundManager>();
             rb = GetComponent<Rigidbody2D>();
             dirrection = -1f;
         }
@@ -28,6 +30,7 @@ public class RhinoScript : MonoBehaviour
             Flip();
             if (IsGrounded())
             {
+                playerSoundManager.PlayMarche();
                 rb.velocity = new Vector2(jumpForce * dirrection, jumpForce * 1.5f);
             }
         }
@@ -39,7 +42,7 @@ public class RhinoScript : MonoBehaviour
                 Vector3 localScale = transform.localScale;
                 localScale.x *= -1f;
                 transform.localScale = localScale;
-                rb.velocity = new Vector2(rb.velocity.x * dirrection, rb.velocity.y);
+                rb.velocity = new Vector2(rb.velocity.x * -1f, rb.velocity.y);
             }
         }
         private bool IsGrounded()
