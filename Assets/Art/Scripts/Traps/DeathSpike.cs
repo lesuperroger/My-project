@@ -10,7 +10,7 @@ public class DeathSpike : MonoBehaviour
         player = col.GetComponent<PlayerJouet>();
         if (player != null) 
         { 
-            player.pv = 0; 
+            player.Death(); 
         }
     }
 }

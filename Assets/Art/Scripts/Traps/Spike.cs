@@ -9,8 +9,8 @@ public class Spike : MonoBehaviour
     {
         player = col.GetComponent<PlayerJouet>();
         if(player != null) 
-        { 
-            player.pv =- 3; 
+        {
+            player.TakeDamage(true, 3);
         }
     }
 }
