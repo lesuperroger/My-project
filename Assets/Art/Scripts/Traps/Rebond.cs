@@ -32,7 +32,7 @@ public class Rebond : MonoBehaviour
         }
         if ((((int)1 << col.gameObject.layer) & layerMaskG) != 1) // layer mask qui detecte si c'est le sol
         {
-            Vector2 direction = Vector2.up * bumpSpeed;
+            Vector2 direction = Vector2.up.normalized * bumpSpeed;
             if (rb != null) 
             { 
                 rb.velocity = (direction * Time.deltaTime);
