@@ -228,10 +228,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  hitPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  invincibility: 0
+  kbForce: 0
+  kbCounter: 0
+  kbTotalTime: 0
+  spriteRenderer: {fileID: 1543082315673617073}
 --- !u!50 &3639911070656089765
 Rigidbody2D:
   serializedVersion: 4
