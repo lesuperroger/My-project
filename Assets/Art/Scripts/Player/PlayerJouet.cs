@@ -110,7 +110,7 @@ public class PlayerJouet : MonoBehaviour
         if (spriteRenderer != null)
         {
             // Change the color of the sprite to red
-            spriteRenderer.color = new Color(1f, 0f, 0f, 0.5f);
+            spriteRenderer.color = new Color(1f, 0f, 0f, 0.2f);
         }
     }
     void ChangeColorNormal()
@@ -149,8 +149,8 @@ public class PlayerJouet : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
-            // Reset les pas
-            tempsPas = 0;
+            // Son du flip
+            playerSoundManager.PlayFlip();
         }
     }
 }
