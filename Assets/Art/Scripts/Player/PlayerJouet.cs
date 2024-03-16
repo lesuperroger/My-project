@@ -15,6 +15,12 @@ public class PlayerJouet : MonoBehaviour
     private float move;
     private bool isFacingRight;
 
+    public float kbForce;
+    public float kbCounter;
+    public float kbTotalTime;
+    private bool KnockFromRight;
+    private bool kbNeedReset = false;
+    public SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,24 +31,65 @@ public class PlayerJouet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //movement gauche/droite
-        move = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(move * speed, rb.velocity.y);
-        //flip sprite
-        Flip();
+        if (kbCounter <= 0)
+        {
+            if(kbNeedReset)
+            {
+                ChangeColorNormal();
+                kbNeedReset = false;
+            }
+            //movement gauche/droite
+            move = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(move * speed, rb.velocity.y);
+            //flip sprite
+            Flip();
 
-        Jump();
-        
+            Jump();
+        }
+        else
+        {
+            if (KnockFromRight == true)
+            {
+                rb.velocity = new Vector2(-kbForce, kbForce);
+            }
+            else if (KnockFromRight == false)
+            {
+                rb.velocity = new Vector2(kbForce, kbForce);
+            }
+            kbCounter -= 1 * Time.deltaTime;
+        }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(bool isFromRight)
     {
+        KnockFromRight = isFromRight;
+        kbCounter = kbTotalTime;
         pv -= 1;
         if (pv <= 0)
         {
             //Destroy(gameObject);
         }
+        kbNeedReset = true;
+        ChangeColorToRed();
+    }
+    private void ChangeColorToRed()
+    {
+        if (spriteRenderer != null)
+        {
+            // Change the color of the sprite to red
+            spriteRenderer.color = new Color(1f, 0f, 0f, 0.5f);
+        }
+    }
+    void ChangeColorNormal()
+    {
+        // Get the SpriteRenderer component attached to this GameObject
+        
 
+        if (spriteRenderer != null)
+        {
+            // Change the color of the sprite to red
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+        }
     }
     private void Jump()
     {
