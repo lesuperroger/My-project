@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MobDm : MonoBehaviour
 {
-
-    public PlayerJouet playerJouet;
     public int dm = 1;
     public float kbTime;
     private PlayerSoundManager playerSoundManager;
@@ -18,9 +16,19 @@ public class MobDm : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerSoundManager.PlayHit();
-            bool isRight = collision.transform.position.x <= transform.position.x;
-            playerJouet.TakeDamage(isRight, dm);
+            PlayerJouet playerScript = collision.gameObject.GetComponent<PlayerJouet>();
+            if (playerScript != null)
+            {
+                // Now you can call any public function from PlayerJouet
+                playerSoundManager.PlayHit();
+                bool isRight = collision.transform.position.x <= transform.position.x;
+                playerScript.TakeDamage(isRight, dm);
+                Debug.Log("Accessed PlayerJouet script via Collision!");
+            }
+            else
+            {
+                Debug.Log("le PlayerScript est null");
+            }
         }
     }
 }
