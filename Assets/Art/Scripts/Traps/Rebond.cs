@@ -12,8 +12,11 @@ public class Rebond : MonoBehaviour
     private PlayerJouet player;
     public Rigidbody2D rb;
     public float bumpSpeed = 500f;
+
+    private PlayerSoundManager playerSoundManager;
     private void Start()
     {
+        playerSoundManager = GetComponent<PlayerSoundManager>();
         rb = gameObject.GetComponentInParent<Rigidbody2D>();
         layerMaskP = (LayerMask)LayerMask.GetMask(layerNameP);// layer mask qui detecte si c'est un player
         layerMaskG = (LayerMask)LayerMask.GetMask(layerNameG);// layer mask qui detecte si c'est le sol
@@ -26,15 +29,16 @@ public class Rebond : MonoBehaviour
             player = col.GetComponent<PlayerJouet>();
             if (player != null) 
             {
+                playerSoundManager.PlayHit();
                 player.Death();
             }
-            
         }
         if ((((int)1 << col.gameObject.layer) & layerMaskG) != 1) // layer mask qui detecte si c'est le sol
         {
             Vector2 direction = Vector2.up.normalized * bumpSpeed;
             if (rb != null) 
-            { 
+            {
+                playerSoundManager.PlayJump();
                 rb.velocity = (direction * Time.deltaTime);
             }
         }

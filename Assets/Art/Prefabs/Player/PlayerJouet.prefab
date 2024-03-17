@@ -116,7 +116,7 @@ MonoBehaviour:
   kbForce: 10
   kbCounter: 0
   kbTotalTime: 0.15
-  spriteRenderer: {fileID: 1543082315673617073}
+  spriteRenderer: {fileID: 524796464470027047}
   mort: {fileID: 0}
   tempsPas: 0
   tempsPasMax: 0.5
