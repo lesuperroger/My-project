@@ -279,6 +279,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 072e41dc553504ca3b0e7ae4f77c9da3, type: 3}
   soundDeath:
   - {fileID: 0}
+  soundImpactGround:
+  - {fileID: 8300000, guid: b968e32f286b049cfbd1fd0da10e1f52, type: 3}
+  - {fileID: 8300000, guid: d947efdc100234585923817b80ce1fc0, type: 3}
 --- !u!114 &6135694018857781534
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,136 +10,59 @@ public class PlayerSoundManager : MonoBehaviour
     public AudioClip[] soundJump;
     public AudioClip[] soundHit;
     public AudioClip[] soundDeath;
+    public AudioClip[] soundImpactGround;
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
-    public void PlayMarche()
+    public void Play(AudioClip[] ac, string debugString = "Son")
     {
-        if (soundMarche.Length > 0)
+        if (ac.Length > 0)
         {
 
             int randomIndex;
             // Select a random clip
-            if (soundMarche.Length == 1)
+            if (ac.Length == 1)
             {
                 randomIndex = 0;
             }
             else
             {
-                randomIndex = Random.Range(0, soundMarche.Length);
+                randomIndex = Random.Range(0, ac.Length);
             }
-            AudioClip clip = soundMarche[randomIndex];
+            AudioClip clip = ac[randomIndex];
 
             // Play the selected clip
             audioSource.PlayOneShot(clip);
         }
         else
         {
-            string nomObjet = gameObject.name;
-            Debug.Log("soundMarche n'est pas set pour " + nomObjet);
+            Debug.Log( nameof(ac) + " n'est pas définit pour " + gameObject.name);
         }
+    }
+    public void PlayMarche()
+    {
+        Play(soundMarche, "soundMarche");
     }
     public void PlayFlip()
     {
-        if (soundFlip.Length > 0)
-        {
-
-            int randomIndex;
-            // Select a random clip
-            if (soundFlip.Length == 1)
-            {
-                randomIndex = 0;
-            }
-            else
-            {
-                randomIndex = Random.Range(0, soundFlip.Length);
-            }
-            AudioClip clip = soundFlip[randomIndex];
-
-            // Play the selected clip
-            audioSource.PlayOneShot(clip);
-        }
-        else
-        {
-            string nomObjet = gameObject.name;
-            Debug.Log("soundMarche n'est pas set pour " + nomObjet);
-        }
+        Play(soundFlip, "soundFlip");
     }
     public void PlayJump()
     {
-        if (soundJump.Length > 0)
-        {
-            int randomIndex;
-            // Select a random clip
-            if (soundJump.Length == 1)
-            {
-                randomIndex = 0;
-            }
-            else
-            {
-                randomIndex = Random.Range(0, soundJump.Length);
-            }
-            AudioClip clip = soundJump[randomIndex];
-
-            // Play the selected clip
-            audioSource.PlayOneShot(clip);
-        }
-        else
-        {
-            string nomObjet = gameObject.name;
-            Debug.Log("soundJump n'est pas set pour " + nomObjet);
-        }
+        Play(soundJump, "soundJump");
     }
     public void PlayHit()
     {
-        if (soundHit.Length > 0)
-        {
-            int randomIndex;
-            // Select a random clip
-            if (soundHit.Length == 1)
-            {
-                randomIndex = 0;
-            }
-            else
-            {
-                randomIndex = Random.Range(0, soundHit.Length);
-            }
-            AudioClip clip = soundHit[randomIndex];
-
-            // Play the selected clip
-            audioSource.PlayOneShot(clip);
-        }
-        else
-        {
-            string nomObjet = gameObject.name;
-            Debug.Log("soundJump n'est pas set pour " + nomObjet);
-        }
+        Play(soundHit, "soundHit");
     }
     public void PlayDeath()
     {
-        if (soundDeath.Length > 0)
-        {
-            int randomIndex;
-            // Select a random clip
-            if (soundDeath.Length == 1)
-            {
-                randomIndex = 0;
-            }
-            else
-            {
-                randomIndex = Random.Range(0, soundDeath.Length);
-            }
-            AudioClip clip = soundDeath[randomIndex];
-
-            // Play the selected clip
-            audioSource.PlayOneShot(clip);
-        }
-        else
-        {
-            string nomObjet = gameObject.name;
-            Debug.Log("soundDeath n'est pas set pour " + nomObjet);
-        }
+        Play(soundDeath, "soundDeath");
+    }
+    public void PlayImpactGround()
+    {
+        Play(soundImpactGround, "soundImpactGround");
     }
 }
