@@ -70,3 +70,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Scenes/audioTest.unity
+Assets/Scenes/audioTest.unity.meta
+Assets/Scenes/test player.unity
+Assets/Scenes/test player.unity.meta
