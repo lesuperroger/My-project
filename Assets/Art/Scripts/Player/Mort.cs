@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mort : MonoBehaviour
 {
-    public GameObject menuRetry;
+    public GameObject gameOverPanel;
     public GameObject skull;
     private Transform skullSpawn;
     private Transform skullshape;
@@ -46,6 +46,9 @@ public class Mort : MonoBehaviour
     private void MenuRetry()
     {
         Destroy(instatiedobj);
-        menuRetry.SetActive(true);
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(true);
+        else
+            Debug.Log("gameOverPanel n'est pas inclu dans le script de mort de PlayerJouet");
     }
 }
