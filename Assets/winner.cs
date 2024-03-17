@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class winner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject winnerPanel;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        winnerPanel.SetActive(true);
     }
 }
