@@ -5,20 +5,19 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    public GameObject optionPanel;
     public GameObject pausePanel;
     public string mainMenu;
     public void resumeButton() 
     {
-        Debug.Log("panneloff");
         pausePanel.SetActive(false);
     }
     public void optionButton() 
     {
-        Debug.Log("optionson");
+        optionPanel.SetActive(true);
     }
     public void mainMenuButton() 
     {
-        Debug.Log("main");
         SceneManager.LoadScene(mainMenu);
     }
 
