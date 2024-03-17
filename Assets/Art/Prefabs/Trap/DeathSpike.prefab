@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2528035567921045591}
   - component: {fileID: 6305679296451905418}
   - component: {fileID: -7836274638227781432}
+  - component: {fileID: 7093740569415282711}
   m_Layer: 6
   m_Name: DeathSpike
   m_TagString: Untagged
@@ -419,3 +420,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dm: 3
+--- !u!114 &7093740569415282711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8628974967989829475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0b9b9ea46cafb47bcdaa65220d56e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  soundMarche: []
+  soundFlip: []
+  soundJump: []
+  soundHit:
+  - {fileID: 8300000, guid: 29f5581fd498249d5b333bc4358ced3c, type: 3}
+  - {fileID: 8300000, guid: 2088adea061df4505b12e4db49377f1b, type: 3}
+  soundDeath: []
