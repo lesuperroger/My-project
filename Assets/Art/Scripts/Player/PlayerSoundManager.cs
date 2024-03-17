@@ -19,8 +19,17 @@ public class PlayerSoundManager : MonoBehaviour
     {
         if (soundMarche.Length > 0)
         {
+
+            int randomIndex;
             // Select a random clip
-            int randomIndex = Random.Range(0, soundMarche.Length);
+            if (soundMarche.Length == 1)
+            {
+                randomIndex = 0;
+            }
+            else
+            {
+                randomIndex = Random.Range(0, soundMarche.Length);
+            }
             AudioClip clip = soundMarche[randomIndex];
 
             // Play the selected clip
@@ -34,11 +43,20 @@ public class PlayerSoundManager : MonoBehaviour
     }
     public void PlayFlip()
     {
-        if (soundMarche.Length > 0)
+        if (soundFlip.Length > 0)
         {
+
+            int randomIndex;
             // Select a random clip
-            int randomIndex = Random.Range(0, soundMarche.Length);
-            AudioClip clip = soundMarche[randomIndex];
+            if (soundFlip.Length == 1)
+            {
+                randomIndex = 0;
+            }
+            else
+            {
+                randomIndex = Random.Range(0, soundFlip.Length);
+            }
+            AudioClip clip = soundFlip[randomIndex];
 
             // Play the selected clip
             audioSource.PlayOneShot(clip);
@@ -53,8 +71,16 @@ public class PlayerSoundManager : MonoBehaviour
     {
         if (soundJump.Length > 0)
         {
+            int randomIndex;
             // Select a random clip
-            int randomIndex = Random.Range(0, soundJump.Length);
+            if (soundJump.Length == 1)
+            {
+                randomIndex = 0;
+            }
+            else
+            {
+                randomIndex = Random.Range(0, soundJump.Length);
+            }
             AudioClip clip = soundJump[randomIndex];
 
             // Play the selected clip
@@ -70,8 +96,16 @@ public class PlayerSoundManager : MonoBehaviour
     {
         if (soundHit.Length > 0)
         {
+            int randomIndex;
             // Select a random clip
-            int randomIndex = Random.Range(0, soundHit.Length);
+            if (soundHit.Length == 1)
+            {
+                randomIndex = 0;
+            }
+            else
+            {
+                randomIndex = Random.Range(0, soundHit.Length);
+            }
             AudioClip clip = soundHit[randomIndex];
 
             // Play the selected clip
@@ -87,8 +121,16 @@ public class PlayerSoundManager : MonoBehaviour
     {
         if (soundDeath.Length > 0)
         {
+            int randomIndex;
             // Select a random clip
-            int randomIndex = Random.Range(0, soundDeath.Length);
+            if (soundDeath.Length == 1)
+            {
+                randomIndex = 0;
+            }
+            else
+            {
+                randomIndex = Random.Range(0, soundDeath.Length);
+            }
             AudioClip clip = soundDeath[randomIndex];
 
             // Play the selected clip
