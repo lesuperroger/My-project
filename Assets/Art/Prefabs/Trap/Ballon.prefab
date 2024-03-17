@@ -336,6 +336,7 @@ MonoBehaviour:
   soundHit:
   - {fileID: 8300000, guid: 2ab45ab1068094207b1777d66c59b681, type: 3}
   soundDeath: []
+  soundImpactGround: []
 --- !u!82 &6027538129480735672
 AudioSource:
   m_ObjectHideFlags: 0
@@ -392,7 +393,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
