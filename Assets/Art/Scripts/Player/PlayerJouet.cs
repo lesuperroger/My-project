@@ -141,6 +141,7 @@ public class PlayerJouet : MonoBehaviour
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
+
     private void Flip()
     {
         if (isFacingRight && move < 0f || !isFacingRight && move > 0f)
@@ -153,4 +154,14 @@ public class PlayerJouet : MonoBehaviour
             playerSoundManager.PlayMarche();
         }
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (((1 << collision.gameObject.layer) & groundLayer) != 0)
+        {
+            // Play the impact ground sound
+            playerSoundManager.PlayImpactGround();
+            Debug.Log("Son impact");
+        }
+    }
+
 }

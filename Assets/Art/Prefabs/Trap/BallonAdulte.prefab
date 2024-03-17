@@ -188,9 +188,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -284,6 +284,7 @@ MonoBehaviour:
   soundHit:
   - {fileID: 8300000, guid: ca948b3435b1f4a83b1cb700943e6569, type: 3}
   soundDeath: []
+  soundImpactGround: []
 --- !u!1 &7618557562407648961
 GameObject:
   m_ObjectHideFlags: 0

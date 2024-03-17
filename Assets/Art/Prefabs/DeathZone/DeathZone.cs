@@ -12,6 +12,7 @@ public class DeathZone : MonoBehaviour
         player = col.GetComponent<PlayerJouet>();
         if(player != null)
         {
+
             player.Death(); 
         }
     }

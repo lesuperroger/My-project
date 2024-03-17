@@ -173,6 +173,7 @@ MonoBehaviour:
   soundHit:
   - {fileID: 8300000, guid: d4af981c0d6ce4442943fb71eb02a105, type: 3}
   soundDeath: []
+  soundImpactGround: []
 --- !u!82 &533929663525677658
 AudioSource:
   m_ObjectHideFlags: 0
@@ -182,7 +183,7 @@ AudioSource:
   m_GameObject: {fileID: 81258519822600396}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7355128014024218921, guid: 2c8be546b00164138bea1eb2505436f9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -490,6 +491,7 @@ MonoBehaviour:
   soundHit:
   - {fileID: 8300000, guid: d4af981c0d6ce4442943fb71eb02a105, type: 3}
   soundDeath: []
+  soundImpactGround: []
 --- !u!82 &5221953162790144302
 AudioSource:
   m_ObjectHideFlags: 0
