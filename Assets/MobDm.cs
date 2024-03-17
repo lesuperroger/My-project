@@ -14,7 +14,7 @@ public class MobDm : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             bool isRight = collision.transform.position.x <= transform.position.x;
-            playerJouet.TakeDamage(isRight, 1);
+            playerJouet.TakeDamage(isRight, dm);
         }
     }
 }
