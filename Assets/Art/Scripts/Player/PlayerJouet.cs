@@ -150,7 +150,7 @@ public class PlayerJouet : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
             // Son du flip
-            playerSoundManager.PlayFlip();
+            playerSoundManager.PlayMarche();
         }
     }
 }

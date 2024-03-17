@@ -13,12 +13,14 @@ public class RhinoScript : MonoBehaviour
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private LayerMask wallLayer;
         private PlayerSoundManager playerSoundManager;
+        public float timeGruntMax = 5f;
+        private float timeGrunt;
 
 
     // Start is called before the first frame update
     void Start()
         {
-
+            timeGrunt = 0;
             playerSoundManager = GetComponent<PlayerSoundManager>();
             rb = GetComponent<Rigidbody2D>();
             dirrection = -1f;
@@ -27,17 +29,26 @@ public class RhinoScript : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
+               
             Flip();
             if (IsGrounded())
             {
                 playerSoundManager.PlayMarche();
                 rb.velocity = new Vector2(jumpForce * dirrection, jumpForce * 1.5f);
             }
+            if(timeGrunt <= 0)
+            {
+                playerSoundManager.PlayJump();
+                timeGrunt = timeGruntMax;
+            }
+            timeGrunt -= Time.deltaTime;
+
         }
         private void Flip()
         {
             if (Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer))
             {
+                playerSoundManager.PlayFlip();
                 dirrection *= -1f;
                 Vector3 localScale = transform.localScale;
                 localScale.x *= -1f;
