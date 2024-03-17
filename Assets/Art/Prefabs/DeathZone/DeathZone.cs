@@ -10,6 +10,9 @@ public class DeathZone : MonoBehaviour
     {
         Debug.Log("trigger");
         player = col.GetComponent<PlayerJouet>();
-        player.Death();
+        if(player != null)
+        {
+            player.Death(); 
+        }
     }
 }
