@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  bumpSpeed: 525
+  bumpSpeed: 700
 --- !u!60 &3964861335829117182
 PolygonCollider2D:
   m_ObjectHideFlags: 0
