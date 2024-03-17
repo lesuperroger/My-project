@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48263a90913c96e409e9b128a9980b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Test plateformes
+  sceneToLoad: ChildLevel
   sceneMainMenu: MainMenu
 --- !u!1 &5862836595338720461
 GameObject:

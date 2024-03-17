@@ -10,6 +10,6 @@ public class DeathZone : MonoBehaviour
     {
         Debug.Log("trigger");
         player = col.GetComponent<PlayerJouet>();
-        player.pv = 0;
+        player.Death();
     }
 }

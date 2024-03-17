@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class OptionMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject optionpanel;
+    public void quitButton() 
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        optionpanel.SetActive(false);
     }
 }
